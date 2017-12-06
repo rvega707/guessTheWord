@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recursive</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<h2>Guess the word!</h2>
+	<div id="output"></div><br>
+	<input type="button" name="btn" id="btn" value="Start Game" onclick="start()"><br>
+<script type="text/javascript">
+	var output = document.getElementById("output");
+	var secretWord = ["javascript", "html", "css"];
+	var mysteryword;
+	function start() {
+		mysteryword = Math.floor(Math.random() * secretWord.length);
+		checkword(prompt("What the word?"));
+	}
+
+	function checkword(secret) {
+		if(secret == secretWord[mysteryword]) {
+			output.innerHTML = "You Guessed it";
+		} else {
+			checkword(prompt("Guess again!"))
+		}
+	}
+</script>
+</body>
+</html>
